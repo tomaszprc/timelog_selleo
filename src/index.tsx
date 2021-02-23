@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Projects from "./pages/Projects/Projects";
 import Timer from "./pages/Timer/Timer";
 import Navbar from "./components/Navbar/Navbar";
+import ProjectPage from "./pages/Projects/ProjectPage/ProjectPage";
 
 ReactDOM.render(
   <>
@@ -15,7 +16,8 @@ ReactDOM.render(
       <Navbar />
       <Switch>
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/projects" component={Projects} />
+        <Route path="/projects" exact component={Projects} />
+        <Route path="/projects/:id" component={ProjectPage} />
         <Route path="/timer" component={Timer} />
         <Route path="/" component={App} />
       </Switch>
