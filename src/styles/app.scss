@@ -1,8 +1,13 @@
-@import './base/breakpoints';
-@import './base/variables';
+//Base
+@import "./base/breakpoints";
+@import "./base/variables";
 
-@import './shared/base.scss';
+//Shared
+@import "./shared/base.scss";
 
-@import './vendor/normalize.scss';
+//Vendor
+@import "./vendor/normalize.scss";
 
-@import './components/container';
+//Components
+@import "./components/container";
+@import "./components/navbar";

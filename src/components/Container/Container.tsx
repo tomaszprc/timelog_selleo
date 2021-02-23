@@ -1,9 +1,9 @@
-import React, {FunctionComponent} from 'react';
+import React, { FunctionComponent } from "react";
 
-interface ContainerProps {};
+interface ContainerProps {}
 
-const Container: FunctionComponent<ContainerProps> = ({children}) => {
-    return <div className="container">{children}</div>
-}
+const Container: FunctionComponent<ContainerProps> = ({ children }) => {
+  return <div className="container">{children}</div>;
+};
 
 export default Container;
