@@ -16,7 +16,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({}) => {
             Timer
           </Link>
           <Link className="navbar__list-element" to="/projects">
-            projects
+            Projects
           </Link>
         </ul>
       </Container>

@@ -1,0 +1,28 @@
+.project-element {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0;
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__button {
+    padding: 15px 20px;
+    border-radius: 8px;
+    background-color: #3c652e;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+
+    &--remove {
+      background-color: #e93c30;
+    }
+
+    &--edit {
+      background-color: #1f5aa6;
+    }
+  }
+}
