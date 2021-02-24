@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 interface ProjectElementProps {
-  id: Number;
-  title: String;
-  description: String;
-  timeTrackIds: Array<Number>;
+  id: number;
+  title: string;
+  description: string;
+  timeTrackIds: number[];
 }
 
 const ProjectElement = ({ id, title, description }: ProjectElementProps) => {

@@ -9,19 +9,23 @@ import Projects from "./pages/Projects/Projects";
 import Timer from "./pages/Timer/Timer";
 import Navbar from "./components/Navbar/Navbar";
 import ProjectPage from "./pages/Projects/ProjectPage/ProjectPage";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
   <>
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/projects" exact component={Projects} />
-        <Route path="/projects/:id" component={ProjectPage} />
-        <Route path="/timer" component={Timer} />
-        <Route path="/" component={App} />
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/projects" exact component={Projects} />
+          <Route path="/projects/:id" component={ProjectPage} />
+          <Route path="/timer" component={Timer} />
+          <Route path="/" component={App} />
+        </Switch>
+      </Router>
+    </Provider>
   </>,
   document.getElementById("root")
 );
