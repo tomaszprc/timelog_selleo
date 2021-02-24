@@ -1,3 +1,5 @@
+export const ADD_PROJECT = "PROJECTS/ADD_PROJECT";
+
 export interface Project {
   id: number;
   title: string;
@@ -5,11 +7,13 @@ export interface Project {
   timeTrackerIds: number[];
 }
 
-export interface ProjectStateType {
+export interface ProjectsList {
   projectsList: Project[];
 }
 
-export const ADD_PROJECT = "ADD_PROJECT";
+export interface ProjectStateType {
+  projects: ProjectsList;
+}
 
 export interface AddProjectAction {
   type: typeof ADD_PROJECT;

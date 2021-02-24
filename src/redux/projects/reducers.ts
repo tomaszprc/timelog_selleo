@@ -1,6 +1,6 @@
-import { ADD_PROJECT, ProjectActionTypes, ProjectStateType } from "./types";
+import { ADD_PROJECT, ProjectActionTypes, ProjectsList } from "./types";
 
-const initialState: ProjectStateType = {
+const initialState: ProjectsList = {
   projectsList: [
     {
       id: 1,
@@ -14,7 +14,7 @@ const initialState: ProjectStateType = {
 export function projectReducer(
   state = initialState,
   action: ProjectActionTypes
-): ProjectStateType {
+): ProjectsList {
   switch (action.type) {
     case ADD_PROJECT:
       return {
