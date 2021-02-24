@@ -1,7 +1,7 @@
 .project-element {
+  align-items: center;
   display: flex;
   justify-content: space-around;
-  align-items: center;
   padding: 15px 0;
 
   &__title {
@@ -9,13 +9,13 @@
   }
 
   &__button {
-    padding: 15px 20px;
-    border-radius: 8px;
     background-color: #3c652e;
-    font-weight: bold;
-    text-decoration: none;
+    border-radius: 8px;
     color: white;
     cursor: pointer;
+    font-weight: bold;
+    padding: 15px 20px;
+    text-decoration: none;
 
     &--remove {
       background-color: #e93c30;
