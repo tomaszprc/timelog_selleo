@@ -3,7 +3,7 @@
 @import "./base/variables";
 
 //Shared
-@import "./shared/base.scss";
+@import "./shared/utility.scss";
 
 //Vendor
 @import "./vendor/normalize.scss";
@@ -14,3 +14,6 @@
 @import "./components/title";
 @import "./components/projects";
 @import "./components/project-element";
+@import "./components/button";
+@import "./components/modal";
+@import "./components/form";

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 interface ProjectElementProps {
   id: number;
@@ -12,15 +13,11 @@ const ProjectElement = ({ id, title, description }: ProjectElementProps) => {
     <div className="project-element">
       <div className="project-element__title">{title}</div>
       <div>{description}</div>
-      <Link className="project-element__button" to={`/projects/${id}`}>
+      <Link className="button" to={`/projects/${id}`}>
         Open
       </Link>
-      <div className="project-element__button project-element__button--edit">
-        Edit
-      </div>
-      <div className="project-element__button project-element__button--remove">
-        Remove
-      </div>
+      <Button text="Edit" modificator="edit" />
+      <Button text="Remove" modificator="remove" />
     </div>
   );
 };
