@@ -1,4 +1,3 @@
-import Container from "../../../components/Container/Container";
 import { useParams } from "react-router-dom";
 
 interface ProjectPageProps {}
@@ -10,11 +9,7 @@ interface ProjectParams {
 const ProjectPage = ({}: ProjectPageProps) => {
   let { id } = useParams<ProjectParams>();
 
-  return (
-    <Container>
-      <div>{id}</div>
-    </Container>
-  );
+  return <div>{id}</div>;
 };
 
 export default ProjectPage;
