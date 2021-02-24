@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
+import { Project } from "../../redux/projects";
 
-interface ProjectElementProps {
-  id: number;
-  title: string;
-  description: string;
-  timeTrackIds: number[];
-}
-
-const ProjectElement = ({ id, title, description }: ProjectElementProps) => {
+const ProjectElement = ({
+  id,
+  title,
+  description,
+  timeTrackerIds,
+}: Project) => {
   return (
     <div className="project-element">
       <div className="project-element__title">{title}</div>
