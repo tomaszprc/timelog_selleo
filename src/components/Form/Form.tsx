@@ -2,7 +2,7 @@ import Title from "../Title/Title";
 import FormInput from "./FormInput/FormInput";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { addProject, AddProjectData, Project } from "../../redux/projects";
+import { addProject, Project } from "../../redux/projects";
 
 interface FormProps {
   handleCloseForm: () => void;
@@ -12,7 +12,7 @@ const Form = ({ handleCloseForm }: FormProps) => {
   const { handleSubmit, register } = useForm();
   const dispatch = useDispatch();
 
-  const onSubmit = (data: AddProjectData) => {
+  const onSubmit = (data: Project) => {
     console.log(data);
     dispatch(
       addProject({
