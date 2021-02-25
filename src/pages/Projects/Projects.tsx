@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ProjectElement from "../../components/ProjectElement/ProjectElement";
 import Title from "../../components/Title/Title";
 import { projectListSelector, Project } from "../../redux/projects";
@@ -11,15 +11,24 @@ interface ProjectsProps {}
 
 const Projects = ({}: ProjectsProps) => {
   const projectsList = useSelector(projectListSelector);
+  const [modalStatus, setModalStatus] = useState(false);
 
   return (
     <>
-      <Modal>
-        <Form />
-      </Modal>
+      {modalStatus && (
+        <Modal>
+          <Form handleCloseForm={() => setModalStatus(false)} />
+        </Modal>
+      )}
+
       <Title title="Projects" />
       <div className="projects__add">
-        <Button text="Add project" modificator="add" large />
+        <Button
+          onClick={() => setModalStatus(true)}
+          text="Add project"
+          modificator="secondary"
+          large
+        />
       </div>
       <div className="projects">
         {projectsList.map((project: Project) => (

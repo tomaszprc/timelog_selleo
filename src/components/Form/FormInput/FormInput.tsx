@@ -1,10 +1,22 @@
-interface FormInput {}
+interface FormInputProps {
+  name?: string;
+  register?: any;
+  type?: string;
+  value?: string;
+  title?: string;
+}
 
-const FormInput = ({}: FormInput) => {
+const FormInput = ({ name, type, register, title }: FormInputProps) => {
   return (
-    <label>
-      <input type="text" name="text" value="text" />
-    </label>
+    <>
+      <label className="form-field">{title}</label>
+      <input
+        className="form-field__input"
+        type={type ? type : "text"}
+        ref={register}
+        name={name}
+      />
+    </>
   );
 };
 

@@ -1,21 +1,21 @@
 .button {
-  padding: 15px 20px;
-  border-radius: 8px;
   background-color: #3c652e;
-  font-weight: bold;
-  text-decoration: none;
+  border-radius: 8px;
   color: white;
   cursor: pointer;
+  font-weight: bold;
+  padding: 15px 20px;
+  text-decoration: none;
 
-  &.remove {
+  &.danger {
     background-color: #e93c30;
   }
 
-  &.edit {
+  &.primary {
     background-color: #1f5aa6;
   }
 
-  &.add {
+  &.secondary {
     background-color: #6f7362;
   }
 

@@ -15,8 +15,8 @@ const ProjectElement = ({
       <Link className="button" to={`/projects/${id}`}>
         Open
       </Link>
-      <Button text="Edit" modificator="edit" />
-      <Button text="Remove" modificator="remove" />
+      <Button text="Edit" modificator="primary" />
+      <Button text="Remove" modificator="danger" />
     </div>
   );
 };
