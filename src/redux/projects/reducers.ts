@@ -1,4 +1,9 @@
-import { ADD_PROJECT, ProjectActionTypes, ProjectsList } from "./types";
+import {
+  ADD_PROJECT,
+  ProjectActionTypes,
+  ProjectsList,
+  REMOVE_PROJECT,
+} from "./types";
 
 const initialState: ProjectsList = {
   taskCount: 1,
@@ -21,11 +26,19 @@ export function projectReducer(
       const { projectsList } = state;
       const id = projectsList[projectsList.length - 1].id + 1;
       const newProject = {
-        ...action.payload,
         id,
+        ...action.payload,
         timeTrackerIds: [],
       };
       return { ...state, projectsList: [...state.projectsList, newProject] };
+
+    case REMOVE_PROJECT:
+      return {
+        ...state,
+        projectsList: state.projectsList.filter(
+          (project) => project.id !== action.payload.id
+        ),
+      };
     default:
       return state;
   }

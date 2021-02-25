@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import "./styles/app.scss";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -22,7 +22,6 @@ ReactDOM.render(
           <Route path="/projects" exact component={Projects} />
           <Route path="/projects/:id" component={ProjectPage} />
           <Route path="/timer" component={Timer} />
-          <Route path="/" component={App} />
         </Switch>
       </Router>
     </Provider>
