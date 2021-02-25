@@ -7,22 +7,4 @@
   &__title {
     font-weight: bold;
   }
-
-  &__button {
-    background-color: #3c652e;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    padding: 15px 20px;
-    text-decoration: none;
-
-    &--remove {
-      background-color: #e93c30;
-    }
-
-    &--edit {
-      background-color: #1f5aa6;
-    }
-  }
 }

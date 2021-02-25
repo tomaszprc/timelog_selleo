@@ -1,4 +1,4 @@
-import { ProjectStateType } from "./types";
+import { RootState } from "../store";
 
-export const projectListSelector = (state: ProjectStateType) =>
+export const projectListSelector = (state: RootState) =>
   state.projects.projectsList;
