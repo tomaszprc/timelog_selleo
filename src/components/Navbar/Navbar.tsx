@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
+import { NavbarTypeProps } from "../../types";
 
-interface NavbarProps {}
-
-const Navbar: FunctionComponent<NavbarProps> = ({}) => {
+const Navbar: FunctionComponent<NavbarTypeProps> = ({}) => {
   return (
     <div className="navbar">
       <ul className="navbar__list">
