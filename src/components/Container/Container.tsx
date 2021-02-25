@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
+import { ContainerTypeProps } from "../../types";
 
-interface ContainerProps {}
-
-const Container: FunctionComponent<ContainerProps> = ({ children }) => {
+const Container: FunctionComponent<ContainerTypeProps> = ({ children }) => {
   return <div className="container">{children}</div>;
 };
 

@@ -3,12 +3,9 @@ import FormInput from "./FormInput/FormInput";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addProject, Project } from "../../redux/projects";
+import { FormTypeProps } from "../../types";
 
-interface FormProps {
-  handleCloseForm: () => void;
-}
-
-const Form = ({ handleCloseForm }: FormProps) => {
+const Form = ({ handleCloseForm }: FormTypeProps) => {
   const { handleSubmit, register } = useForm();
   const dispatch = useDispatch();
 

@@ -1,8 +1,7 @@
 import { FunctionComponent } from "react";
+import { ModalTypeProps } from "../../types";
 
-interface ModalProps {}
-
-const Modal: FunctionComponent<ModalProps> = ({ children }) => {
+const Modal: FunctionComponent<ModalTypeProps> = ({ children }) => {
   return <div className="modal">{children}</div>;
 };
 

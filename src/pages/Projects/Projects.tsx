@@ -6,10 +6,9 @@ import { useSelector } from "react-redux";
 import Button from "../../components/Button/Button";
 import Modal from "../../components/Modal/Modal";
 import Form from "../../components/Form/Form";
+import { ProjectTypeProps } from "../../types";
 
-interface ProjectsProps {}
-
-const Projects = ({}: ProjectsProps) => {
+const Projects = ({}: ProjectTypeProps) => {
   const projectsList = useSelector(projectListSelector);
   const [modalStatus, setModalStatus] = useState(false);
 
