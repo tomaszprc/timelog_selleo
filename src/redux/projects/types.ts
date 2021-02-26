@@ -8,6 +8,11 @@ export interface Project {
   timeTrackerIds: number[];
 }
 
+export interface AddProjectData {
+  title: string;
+  description: string;
+}
+
 export type AddProjectPayload = Omit<Project, "id" | "timeTrackerIds">;
 
 export interface ProjectsList {
@@ -30,4 +35,9 @@ export interface AddProjectAction {
   payload: AddProjectPayload;
 }
 
-export type ProjectActionTypes = AddProjectAction;
+export interface RemoveProjectAction {
+  type: typeof REMOVE_PROJECT;
+  payload: Project;
+}
+
+export type ProjectActionTypes = AddProjectAction | RemoveProjectAction;
