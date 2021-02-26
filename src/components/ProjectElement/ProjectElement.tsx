@@ -4,19 +4,13 @@ import { Project, removeProject, editProject } from "../../redux/projects";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 
-const ProjectElement = ({
-  id,
-  title,
-  description,
-  timeTrackerIds,
-}: Project) => {
+const ProjectElement = ({ id, title, description }: Project) => {
   const dispatch = useDispatch();
   const [edit, setEdit] = useState(false);
   const [formData, setFormData] = useState({
     title,
     description,
     id,
-    timeTrackerIds,
   });
 
   const handleRemove = (id: number) => {
