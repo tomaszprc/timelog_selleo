@@ -1,0 +1,11 @@
+.project-page {
+  padding: 0 15px;
+
+  &__description {
+    display: flex;
+    font-size: 21px;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+}

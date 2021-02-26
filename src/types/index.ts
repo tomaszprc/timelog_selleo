@@ -9,3 +9,4 @@ export * from "./dashboard.type";
 export * from "./projectPage.type";
 export * from "./project.type";
 export * from "./timer.type";
+export * from "./projectPageElement.type";

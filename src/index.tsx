@@ -11,18 +11,21 @@ import Navbar from "./components/Navbar/Navbar";
 import ProjectPage from "./pages/Projects/ProjectPage/ProjectPage";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import Container from "./components/Container/Container";
 
 ReactDOM.render(
   <>
     <Provider store={store}>
       <Router>
         <Navbar />
-        <Switch>
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/projects" exact component={Projects} />
-          <Route path="/projects/:id" component={ProjectPage} />
-          <Route path="/timer" component={Timer} />
-        </Switch>
+        <Container>
+          <Switch>
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/projects" exact component={Projects} />
+            <Route path="/projects/:id" component={ProjectPage} />
+            <Route path="/timer" component={Timer} />
+          </Switch>
+        </Container>
       </Router>
     </Provider>
   </>,
