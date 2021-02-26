@@ -25,9 +25,10 @@ export function projectReducer(
     case ADD_PROJECT:
       const { projectsList } = state;
       const id = projectsList[projectsList.length - 1].id + 1;
+
       const newProject = {
-        id,
         ...action.payload,
+        id,
         timeTrackerIds: [],
       };
       return { ...state, projectsList: [...state.projectsList, newProject] };
