@@ -13,6 +13,10 @@ export interface AddProjectData {
   description: string;
 }
 
+export interface RemoveProjectData {
+  id: number;
+}
+
 export type AddProjectPayload = Omit<Project, "id" | "timeTrackerIds">;
 
 export interface ProjectsList {
@@ -37,7 +41,7 @@ export interface AddProjectAction {
 
 export interface RemoveProjectAction {
   type: typeof REMOVE_PROJECT;
-  payload: Project;
+  payload: RemoveProjectData;
 }
 
 export type ProjectActionTypes = AddProjectAction | RemoveProjectAction;
