@@ -1,7 +1,6 @@
 import { ADD_PROJECT, ProjectActionTypes, ProjectsList } from "./types";
 
 const initialState: ProjectsList = {
-  taskCount: 1,
   projectsList: [
     {
       id: 1,
@@ -19,7 +18,7 @@ export function projectReducer(
   switch (action.type) {
     case ADD_PROJECT:
       const { projectsList } = state;
-      const id = projectsList[projectsList.length - 1].id + 1;
+      const id = projectsList[projectsList.length - 1]?.id + 1 || 0;
       const newProject = {
         ...action.payload,
         id,

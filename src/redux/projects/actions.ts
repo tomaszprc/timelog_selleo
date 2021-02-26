@@ -1,6 +1,6 @@
-import { ADD_PROJECT, Project, ProjectActionTypes } from "./types";
+import { AddProjectPayload, ADD_PROJECT, ProjectActionTypes } from "./types";
 
-export function addProject(newProject: Project): ProjectActionTypes {
+export function addProject(newProject: AddProjectPayload): ProjectActionTypes {
   // request do bazy => baza zwraca async payload => payload zwracasz w return
   return {
     type: ADD_PROJECT,

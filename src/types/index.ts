@@ -4,7 +4,6 @@ export * from "./form.type";
 export * from "./formInput.type";
 export * from "./modal.type";
 export * from "./navbar.type";
-export * from "./overlay.type";
 export * from "./title.type";
 export * from "./dashboard.type";
 export * from "./projectPage.type";
