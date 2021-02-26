@@ -3,6 +3,7 @@ import {
   ProjectActionTypes,
   ProjectsList,
   REMOVE_PROJECT,
+  EDIT_PROJECT,
 } from "./types";
 
 const initialState: ProjectsList = {
@@ -24,7 +25,7 @@ export function projectReducer(
   switch (action.type) {
     case ADD_PROJECT:
       const { projectsList } = state;
-      const id = projectsList[projectsList.length - 1].id + 1;
+      const id = projectsList[projectsList.length - 1]?.id + 1 || 0;
 
       const newProject = {
         ...action.payload,
@@ -40,6 +41,18 @@ export function projectReducer(
           (project) => project.id !== action.payload.id
         ),
       };
+
+    case EDIT_PROJECT:
+      let taskList = state.projectsList.map((project) => {
+        if (project.id == action.payload.id) {
+          project.title = action.payload.title;
+          project.description = action.payload.description;
+        }
+
+        return project;
+      });
+
+      return { ...state, projectsList: taskList };
     default:
       return state;
   }

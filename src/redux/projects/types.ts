@@ -1,5 +1,6 @@
 export const ADD_PROJECT = "PROJECTS/ADD_PROJECT";
 export const REMOVE_PROJECT = "PROJECTS/REMOVE_PROJECT";
+export const EDIT_PROJECT = "PROJECTS/EDIT_PROJECT";
 
 export interface Project {
   id: number;
@@ -40,4 +41,12 @@ export interface RemoveProjectAction {
   payload: Project;
 }
 
-export type ProjectActionTypes = AddProjectAction | RemoveProjectAction;
+export interface EditProjectAction {
+  type: typeof EDIT_PROJECT;
+  payload: Project;
+}
+
+export type ProjectActionTypes =
+  | AddProjectAction
+  | RemoveProjectAction
+  | EditProjectAction;

@@ -3,6 +3,7 @@ import {
   Project,
   ProjectActionTypes,
   REMOVE_PROJECT,
+  EDIT_PROJECT,
 } from "./types";
 
 export function addProject(newProject: Project): ProjectActionTypes {
@@ -17,5 +18,12 @@ export function removeProject(removeProject: Project): ProjectActionTypes {
   return {
     type: REMOVE_PROJECT,
     payload: removeProject,
+  };
+}
+
+export function editProject(editProject: Project): ProjectActionTypes {
+  return {
+    type: EDIT_PROJECT,
+    payload: editProject,
   };
 }

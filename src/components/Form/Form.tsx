@@ -24,7 +24,12 @@ const Form = ({ handleCloseForm }: FormTypeProps) => {
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-      <Title title="Form" />
+      <div className="form__header">
+        <Title title="Form" />
+        <div onClick={() => handleCloseForm()} className="form__close">
+          X
+        </div>
+      </div>
       <div className="form__inputs">
         <FormInput name="title" title="Title" register={register} />
 
