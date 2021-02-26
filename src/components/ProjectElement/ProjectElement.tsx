@@ -36,7 +36,6 @@ const ProjectElement = ({
           title: formData.title,
           description: formData.description,
           id: formData.id,
-          timeTrackerIds: formData.timeTrackerIds,
         })
       );
       setEdit(editMode);

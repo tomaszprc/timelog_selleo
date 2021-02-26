@@ -9,37 +9,35 @@ export interface Project {
   timeTrackerIds: number[];
 }
 
-export type AddProjectPayload = Pick<Project, "title" | "description">;
-
-export interface RemoveProjectData {
-  id: number;
-}
-
 export interface ProjectsList {
   projectsList: Project[];
 }
 
-export interface ProjectModalState {
-  projects: ProjectsList;
-}
-
-export interface ProjectStateType {
-  projects: ProjectsList;
-}
+export type AddProjectPayload = Pick<Project, "title" | "description">;
 
 export interface AddProjectAction {
   type: typeof ADD_PROJECT;
   payload: AddProjectPayload;
 }
 
+export interface RemoveProjectPayload {
+  id: number;
+}
+
 export interface RemoveProjectAction {
   type: typeof REMOVE_PROJECT;
-  payload: RemoveProjectData;
+  payload: RemoveProjectPayload;
+}
+
+export interface EditProjectPayload {
+  id: number;
+  title: string;
+  description: string;
 }
 
 export interface EditProjectAction {
   type: typeof EDIT_PROJECT;
-  payload: Project;
+  payload: EditProjectPayload;
 }
 
 export type ProjectActionTypes =
