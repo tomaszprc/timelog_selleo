@@ -22,10 +22,7 @@ const ProjectElement = ({
   const handleRemove = (id: number) => {
     dispatch(
       removeProject({
-        title: title,
-        description: description,
-        timeTrackerIds: timeTrackerIds,
-        id: id,
+        id,
       })
     );
   };

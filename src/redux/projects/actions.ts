@@ -1,12 +1,13 @@
 import {
+  AddProjectPayload,
   ADD_PROJECT,
-  Project,
   ProjectActionTypes,
+  RemoveProjectData,
   REMOVE_PROJECT,
   EDIT_PROJECT,
 } from "./types";
 
-export function addProject(newProject: Project): ProjectActionTypes {
+export function addProject(newProject: AddProjectPayload): ProjectActionTypes {
   // request do bazy => baza zwraca async payload => payload zwracasz w return
   return {
     type: ADD_PROJECT,
@@ -14,7 +15,9 @@ export function addProject(newProject: Project): ProjectActionTypes {
   };
 }
 
-export function removeProject(removeProject: Project): ProjectActionTypes {
+export function removeProject(
+  removeProject: RemoveProjectData
+): ProjectActionTypes {
   return {
     type: REMOVE_PROJECT,
     payload: removeProject,
