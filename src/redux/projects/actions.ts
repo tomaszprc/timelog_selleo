@@ -2,8 +2,10 @@ import {
   AddProjectPayload,
   ADD_PROJECT,
   ProjectActionTypes,
-  RemoveProjectData,
+  RemoveProjectPayload,
   REMOVE_PROJECT,
+  EDIT_PROJECT,
+  EditProjectPayload,
 } from "./types";
 
 export function addProject(newProject: AddProjectPayload): ProjectActionTypes {
@@ -15,10 +17,19 @@ export function addProject(newProject: AddProjectPayload): ProjectActionTypes {
 }
 
 export function removeProject(
-  removeProject: RemoveProjectData
+  removeProject: RemoveProjectPayload
 ): ProjectActionTypes {
   return {
     type: REMOVE_PROJECT,
     payload: removeProject,
+  };
+}
+
+export function editProject(
+  editProject: EditProjectPayload
+): ProjectActionTypes {
+  return {
+    type: EDIT_PROJECT,
+    payload: editProject,
   };
 }

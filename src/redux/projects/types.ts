@@ -1,5 +1,6 @@
 export const ADD_PROJECT = "PROJECTS/ADD_PROJECT";
 export const REMOVE_PROJECT = "PROJECTS/REMOVE_PROJECT";
+export const EDIT_PROJECT = "PROJECTS/EDIT_PROJECT";
 
 export interface Project {
   id: number;
@@ -8,32 +9,38 @@ export interface Project {
   timeTrackerIds: number[];
 }
 
-export type AddProjectPayload = Pick<Project, "title" | "description">;
-
-export interface RemoveProjectData {
-  id: number;
-}
-
 export interface ProjectsList {
   projectsList: Project[];
 }
 
-export interface ProjectModalState {
-  projects: ProjectsList;
-}
-
-export interface ProjectStateType {
-  projects: ProjectsList;
-}
+export type AddProjectPayload = Pick<Project, "title" | "description">;
 
 export interface AddProjectAction {
   type: typeof ADD_PROJECT;
   payload: AddProjectPayload;
 }
 
-export interface RemoveProjectAction {
-  type: typeof REMOVE_PROJECT;
-  payload: RemoveProjectData;
+export interface RemoveProjectPayload {
+  id: number;
 }
 
-export type ProjectActionTypes = AddProjectAction | RemoveProjectAction;
+export interface RemoveProjectAction {
+  type: typeof REMOVE_PROJECT;
+  payload: RemoveProjectPayload;
+}
+
+export interface EditProjectPayload {
+  id: number;
+  title: string;
+  description: string;
+}
+
+export interface EditProjectAction {
+  type: typeof EDIT_PROJECT;
+  payload: EditProjectPayload;
+}
+
+export type ProjectActionTypes =
+  | AddProjectAction
+  | RemoveProjectAction
+  | EditProjectAction;
