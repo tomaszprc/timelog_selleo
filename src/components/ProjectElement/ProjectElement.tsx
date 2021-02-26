@@ -45,22 +45,19 @@ const ProjectElement = ({
   const handleChangeInput = (
     event: React.ChangeEvent<HTMLInputElement>,
     type: string,
-    id: number,
-    timeTrackerIds: number[]
+    id: number
   ) => {
     if (type == "title") {
       setFormData({
         ...formData,
-        ["title"]: event.target.value,
         ["id"]: id,
-        ["timeTrackerIds"]: timeTrackerIds,
+        ["title"]: event.target.value,
       });
     } else if (type == "description") {
       setFormData({
         ...formData,
-        ["description"]: event.target.value,
         ["id"]: id,
-        ["timeTrackerIds"]: timeTrackerIds,
+        ["description"]: event.target.value,
       });
     }
   };
@@ -71,16 +68,12 @@ const ProjectElement = ({
         <>
           <input
             type="text"
-            onChange={(event) =>
-              handleChangeInput(event, "title", id, timeTrackerIds)
-            }
+            onChange={(event) => handleChangeInput(event, "title", id)}
             defaultValue={title}
           />
           <input
             type="text"
-            onChange={(event) =>
-              handleChangeInput(event, "description", id, timeTrackerIds)
-            }
+            onChange={(event) => handleChangeInput(event, "description", id)}
             defaultValue={description}
           />
         </>
