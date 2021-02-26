@@ -1,8 +1,6 @@
-interface TitleProps {
-  title: string;
-}
+import { TitleTypeProps } from "../../types";
 
-const Title = ({ title }: TitleProps) => {
+const Title = ({ title }: TitleTypeProps) => {
   return <div className="title">{title}</div>;
 };
 

@@ -1,6 +1,6 @@
-interface OverlayProps {}
+import { OverlayTypeProps } from "../../types";
 
-const Overlay = ({}: OverlayProps) => {
+const Overlay = ({}: OverlayTypeProps) => {
   return (
     <div className="overlay">
       <div>Overlay</div>

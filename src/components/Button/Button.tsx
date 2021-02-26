@@ -1,19 +1,12 @@
-interface ButtonProps {
-  text: string;
-  modificator?: string;
-  large?: boolean;
-  onClick?: () => void;
-  taskID?: string;
-}
+import { ButtonTypeProps } from "../../types";
 
-const Button = ({ text, modificator, large, onClick, taskID }: ButtonProps) => {
+const Button = ({ text, modificator, large, onClick }: ButtonTypeProps) => {
   return (
     <div
       className={`button ${modificator ? modificator : ""} ${
         large ? "large" : ""
       }`}
       onClick={onClick}
-      id={taskID}
     >
       {text}
     </div>

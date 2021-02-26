@@ -1,8 +1,7 @@
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
+import { DashboardTypeProps } from "../../types";
 
-interface DashboardProps {}
-
-const Dashboard: FunctionComponent<DashboardProps> = ({}) => {
+const Dashboard: FunctionComponent<DashboardTypeProps> = ({}) => {
   return <div>Dashboard</div>;
 };
 

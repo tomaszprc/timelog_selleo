@@ -1,13 +1,8 @@
 import { useParams } from "react-router-dom";
+import { ProjectPageTypeProps, ProjectPageTypeParams } from "../../../types";
 
-interface ProjectPageProps {}
-
-interface ProjectParams {
-  id: string;
-}
-
-const ProjectPage = ({}: ProjectPageProps) => {
-  let { id } = useParams<ProjectParams>();
+const ProjectPage = ({}: ProjectPageTypeProps) => {
+  let { id } = useParams<ProjectPageTypeParams>();
 
   return <div>{id}</div>;
 };

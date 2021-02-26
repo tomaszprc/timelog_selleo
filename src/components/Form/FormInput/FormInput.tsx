@@ -1,12 +1,6 @@
-interface FormInputProps {
-  name?: string;
-  register?: any;
-  type?: string;
-  value?: string;
-  title?: string;
-}
+import { FormInputTypeProps } from "../../../types";
 
-const FormInput = ({ name, type, register, title }: FormInputProps) => {
+const FormInput = ({ name, type, register, title }: FormInputTypeProps) => {
   return (
     <>
       <label className="form-field">{title}</label>

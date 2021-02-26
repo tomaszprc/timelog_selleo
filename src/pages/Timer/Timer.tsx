@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
+import { TimerTypeProps } from "../../types";
 
-interface TimerProps {}
-
-const Timer: FunctionComponent<TimerProps> = ({}) => {
+const Timer: FunctionComponent<TimerTypeProps> = ({}) => {
   return <div>Timer</div>;
 };
 
