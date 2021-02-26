@@ -8,30 +8,22 @@ export interface Project {
   timeTrackerIds: number[];
 }
 
-export interface AddProjectData {
-  title: string;
-  description: string;
-}
+export type AddProjectPayload = Pick<Project, "title" | "description">;
 
 export interface RemoveProjectData {
   id: number;
 }
 
-export type AddProjectPayload = Omit<Project, "id" | "timeTrackerIds">;
-
 export interface ProjectsList {
   projectsList: Project[];
-  taskCount: number;
 }
 
 export interface ProjectModalState {
   projects: ProjectsList;
-  openModal: boolean;
 }
 
 export interface ProjectStateType {
   projects: ProjectsList;
-  taskCount: number;
 }
 
 export interface AddProjectAction {
