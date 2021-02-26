@@ -10,7 +10,6 @@ const Form = ({ handleCloseForm }: FormTypeProps) => {
   const dispatch = useDispatch();
 
   const onSubmit = (data: Project) => {
-    console.log(data);
     dispatch(
       addProject({
         title: data.title,

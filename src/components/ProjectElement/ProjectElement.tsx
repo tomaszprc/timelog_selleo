@@ -20,15 +20,6 @@ const ProjectElement = ({
         id: id,
       })
     );
-
-    // dispatch(
-    //   removeProject({
-    //     title: "title",
-    //     description: "desc",
-    //     timeTrackerIds: [],
-    //     id: 0,
-    //   })
-    // );
   };
 
   return (
