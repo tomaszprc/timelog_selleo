@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import { getProjectSelector } from "../../../redux/projects";
-import { ProjectPageTypeProps, ProjectPageTypeParams } from "../../../types";
+import { ProjectPageTypeParams } from "../../../types";
 import { useSelector } from "react-redux";
 import Title from "../../../components/Title/Title";
 import ProjectPageElement from "../../../components/ProjectPageElement/ProjectPageElement";
 
-const ProjectPage = ({}: ProjectPageTypeProps) => {
+const ProjectPage = () => {
   let { id } = useParams<ProjectPageTypeParams>();
   const currentProject = useSelector(getProjectSelector(id));
 

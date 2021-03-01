@@ -8,5 +8,7 @@ export const getProjectSelector = (id: string) => (state: RootState) => {
     if (project.id === parseInt(id)) {
       return project;
     }
+
+    return project;
   });
 };

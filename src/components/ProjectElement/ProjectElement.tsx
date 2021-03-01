@@ -41,17 +41,17 @@ const ProjectElement = ({ id, title, description }: Project) => {
     type: string,
     id: number
   ) => {
-    if (type == "title") {
+    if (type === "title") {
       setFormData({
         ...formData,
-        ["id"]: id,
-        ["title"]: event.target.value,
+        id: id,
+        title: event.target.value,
       });
-    } else if (type == "description") {
+    } else if (type === "description") {
       setFormData({
         ...formData,
-        ["id"]: id,
-        ["description"]: event.target.value,
+        id: id,
+        description: event.target.value,
       });
     }
   };
