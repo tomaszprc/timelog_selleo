@@ -36,24 +36,11 @@ const ProjectElement = ({ id, title, description }: Project) => {
     }
   };
 
-  const handleChangeInput = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    type: string,
-    id: number
-  ) => {
-    if (type === "title") {
-      setFormData({
-        ...formData,
-        id: id,
-        title: event.target.value,
-      });
-    } else if (type === "description") {
-      setFormData({
-        ...formData,
-        id: id,
-        description: event.target.value,
-      });
-    }
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
   };
 
   return (
@@ -62,13 +49,15 @@ const ProjectElement = ({ id, title, description }: Project) => {
         <>
           <input
             type="text"
-            onChange={(event) => handleChangeInput(event, "title", id)}
+            onChange={handleChangeInput}
             defaultValue={title}
+            name="title"
           />
           <input
             type="text"
-            onChange={(event) => handleChangeInput(event, "description", id)}
+            onChange={handleChangeInput}
             defaultValue={description}
+            name="description"
           />
         </>
       ) : (
