@@ -14,6 +14,18 @@ const initialState: ProjectsList = {
       description: "Opis projektu 1",
       timeTrackerIds: [3, 4],
     },
+    {
+      id: 2,
+      title: "Tytuł drugiego projektu",
+      description: "Opis projektu 2",
+      timeTrackerIds: [1, 2],
+    },
+    {
+      id: 3,
+      title: "Tytuł trzeciego projektu",
+      description: "Opis projektu 3",
+      timeTrackerIds: [1, 2],
+    },
   ],
 };
 

@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Projects from "./pages/Projects/Projects";
-import Timer from "./pages/Timer/Timer";
+import Tracker from "./pages/Tracker/Tracker";
 import Navbar from "./components/Navbar/Navbar";
 import ProjectPage from "./pages/Projects/ProjectPage/ProjectPage";
 import { store } from "./redux/store";
@@ -23,7 +23,7 @@ ReactDOM.render(
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/projects" exact component={Projects} />
             <Route path="/projects/:id" component={ProjectPage} />
-            <Route path="/timer" component={Timer} />
+            <Route path="/tracker" component={Tracker} />
           </Switch>
         </Container>
       </Router>

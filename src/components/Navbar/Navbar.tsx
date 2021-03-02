@@ -9,7 +9,7 @@ const Navbar: FunctionComponent<NavbarTypeProps> = () => {
         <Link className="navbar__list-element" to="/dashboard">
           Dashboard
         </Link>
-        <Link className="navbar__list-element" to="/timer">
+        <Link className="navbar__list-element" to="/tracker">
           Timer
         </Link>
         <Link className="navbar__list-element" to="/projects">

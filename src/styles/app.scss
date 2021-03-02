@@ -9,14 +9,17 @@
 @import "./vendor/normalize.scss";
 
 //Components
-@import "./components/p-page-element";
 @import "./components/button";
 @import "./components/container";
+@import "./components/counter";
 @import "./components/form-field";
 @import "./components/form";
 @import "./components/modal";
 @import "./components/navbar";
+@import "./components/p-page-element";
 @import "./components/project-element";
 @import "./components/project-page";
 @import "./components/projects";
 @import "./components/title";
+@import "./components/tracker-element";
+@import "./components/tracker";
