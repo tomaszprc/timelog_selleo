@@ -1,0 +1,32 @@
+.tracker-element {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0px;
+
+  &__icon {
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  &__menu {
+    position: relative;
+  }
+
+  &__modal {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px 0 #867e8a;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px;
+    position: absolute;
+    right: 19px;
+    top: 19px;
+
+    &:hover {
+      background-color: #ded6d6;
+      color: Red;
+    }
+  }
+}
