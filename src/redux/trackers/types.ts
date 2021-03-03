@@ -1,13 +1,11 @@
-import Tracker from "../../pages/Tracker/Tracker";
-
 export const ADD_TRACKER = "TRACKERS/ADD_TRACKER";
 
 export interface Tracker {
   id: number;
   title: string;
-  startTime: string;
-  endTime: string;
-  projectID?: number;
+  startTime: Date;
+  endTime: Date;
+  projectID?: null | string;
 }
 
 export interface TrackersList {
@@ -16,7 +14,7 @@ export interface TrackersList {
 
 export type AddTrackerPayload = Pick<
   Tracker,
-  "title" | "startTime" | "endTime"
+  "title" | "startTime" | "endTime" | "projectID"
 >;
 
 export interface AddTrackerAction {

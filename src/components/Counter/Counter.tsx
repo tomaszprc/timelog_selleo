@@ -1,50 +1,57 @@
 import React from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { getTrackerListSelector } from "../../redux/trackers";
+import { addTracker } from "../../redux/trackers";
+import { useDispatch } from "react-redux";
+import { getProjectListSelector } from "../../redux/projects";
 
 const Counter = () => {
   const [time, setTime] = React.useState(0);
   const [timeData, setTimerData] = React.useState<{
-    timerOn: boolean;
+    timerOn: null | boolean;
     title: string;
-    startTime: null | Date;
-    endTime: null | Date;
+    startTime: Date;
     projectID: null | string;
   }>({
-    timerOn: false,
+    timerOn: null,
     title: "",
-    startTime: null,
-    endTime: null,
+    startTime: new Date(),
     projectID: null,
   });
 
-  const trackersList = useSelector(getTrackerListSelector);
+  const dispatch = useDispatch();
+  const projectsList = useSelector(getProjectListSelector);
 
   //TODO: Seperate interval function
   React.useEffect(() => {
-    let interval: any;
+    if (timeData.timerOn !== null) {
+      let interval: any;
 
-    if (timeData.timerOn) {
-      setTimerData({
-        ...timeData,
-        startTime: new Date(),
-      });
+      if (timeData.timerOn) {
+        setTimerData({
+          ...timeData,
+          startTime: new Date(),
+        });
 
-      interval = setInterval(() => {
-        setTime((prevTime) => prevTime + 10);
-      }, 10);
-    } else if (!timeData.timerOn) {
-      setTimerData({
-        ...timeData,
-        endTime: new Date(),
-      });
+        interval = setInterval(() => {
+          setTime((prevTime) => prevTime + 10);
+        }, 10);
+      } else if (!timeData.timerOn) {
+        dispatch(
+          addTracker({
+            title: timeData.title,
+            startTime: timeData.startTime,
+            endTime: new Date(),
+            projectID: timeData.projectID,
+          })
+        );
 
-      setTime(0);
-      clearInterval(interval);
+        setTime(0);
+        clearInterval(interval);
+      }
+
+      return () => clearInterval(interval);
     }
-
-    return () => clearInterval(interval);
   }, [timeData.timerOn]);
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -77,10 +84,10 @@ const Counter = () => {
         id="cars"
       >
         <option value="null">No project</option>
-        {trackersList.map((tracker) => {
+        {projectsList.map((projectsList) => {
           return (
-            <option key={tracker.id} value={tracker.id}>
-              {tracker.title}
+            <option key={projectsList.id} value={projectsList.id}>
+              {projectsList.title}
             </option>
           );
         })}
