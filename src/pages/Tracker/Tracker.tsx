@@ -7,19 +7,24 @@ import { getTrackerListSelector } from "../../redux/trackers";
 const Tracker = () => {
   const trackersList = useSelector(getTrackerListSelector);
 
-  console.log(trackersList);
-
   return (
     <div className="tracker">
       <Title title="Tracker" />
       <Counter />
 
       <div className="tracker__list">
-        {trackersList.map((tracker) => {})}
-
-        <TrackerElement />
-        <TrackerElement />
-        <TrackerElement />
+        {/* TODO: fix this type any */}
+        {trackersList.map((tracker: any) => {
+          return (
+            <TrackerElement
+              key={tracker.id}
+              title={tracker.title}
+              startTime={tracker.startTime}
+              endTime={tracker.endTime}
+              projectID={tracker.projectID}
+            />
+          );
+        })}
       </div>
     </div>
   );

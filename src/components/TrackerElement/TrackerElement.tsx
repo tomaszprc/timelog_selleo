@@ -1,25 +1,35 @@
-import { FaAlignJustify } from "react-icons/fa";
+import { FaPen, FaRegTrashAlt, FaCheck } from "react-icons/fa";
 import React from "react";
-
-const TrackerElement = () => {
-  const [modal, setModal] = React.useState(false);
+import { format } from "date-fns";
+import { TrackerElementProps } from "../../types";
+const TrackerElement = ({ title, startTime, endTime }: TrackerElementProps) => {
+  let startTimeConvert = format(startTime, "k:mm:ss");
+  let finishTimeConvert = format(endTime, "k:mm:ss");
+  const [editMode, setEditMode] = React.useState(false);
 
   return (
     <div className="tracker-element">
-      <div>Tytuł trackera</div>
+      <div>{title}</div>
       <div>Projekt trackera - if exist</div>
-      <div>od do godzina</div>
-      <div>łączny czas</div>
-      <div className="tracker-element__menu">
-        <FaAlignJustify
-          className="tracker-element__icon"
-          onClick={() => setModal(!modal)}
-        />
-        {modal && (
-          <div className="tracker-element__modal">
-            <div>Usuń</div>
-          </div>
+      <div>
+        Time: {startTimeConvert} - {finishTimeConvert}
+      </div>
+
+      <div>
+        {editMode ? (
+          <FaCheck
+            onClick={() => setEditMode(!editMode)}
+            className="tracker-element__icon"
+          />
+        ) : (
+          <FaPen
+            onClick={() => setEditMode(!editMode)}
+            className="tracker-element__icon"
+          />
         )}
+      </div>
+      <div>
+        <FaRegTrashAlt className="tracker-element__icon" />
       </div>
     </div>
   );

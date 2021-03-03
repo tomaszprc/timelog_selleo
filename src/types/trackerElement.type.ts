@@ -1,6 +1,6 @@
 export interface TrackerElementProps {
-  title: string;
-  project: number;
-  startTime: string;
-  endTime: string;
+  title: null | string;
+  startTime: Date;
+  endTime: Date;
+  projectID?: string;
 }
