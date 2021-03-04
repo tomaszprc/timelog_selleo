@@ -5,7 +5,7 @@ export interface Tracker {
   title: string;
   startTime: Date;
   endTime: Date;
-  projectID?: null | string;
+  projectID: string;
 }
 
 export interface TrackersList {
