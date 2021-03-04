@@ -11,3 +11,4 @@ export * from "./project.type";
 export * from "./timer.type";
 export * from "./projectPageElement.type";
 export * from "./trackerElement.type";
+export * from "./counter.type";

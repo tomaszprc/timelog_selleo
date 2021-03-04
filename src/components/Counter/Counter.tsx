@@ -1,22 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { addTracker } from "../../redux/trackers";
 import { useDispatch } from "react-redux";
 import { getProjectListSelector } from "../../redux/projects";
+import { CounterTypeProps } from "../../types";
 
 const Counter = () => {
   const [time, setTime] = React.useState(0);
-  const [timeData, setTimerData] = React.useState<{
-    timerOn: null | boolean;
-    title: string;
-    startTime: Date;
-    projectID: null | string;
-  }>({
-    timerOn: null,
+  const isFirstRun = useRef(true);
+
+  const [timeData, setTimerData] = React.useState<CounterTypeProps>({
+    timerOn: false,
     title: "",
     startTime: new Date(),
-    projectID: null,
+    projectID: "",
   });
 
   const dispatch = useDispatch();
@@ -24,34 +22,37 @@ const Counter = () => {
 
   //TODO: Seperate interval function
   React.useEffect(() => {
-    if (timeData.timerOn !== null) {
-      let interval: any;
-
-      if (timeData.timerOn) {
-        setTimerData({
-          ...timeData,
-          startTime: new Date(),
-        });
-
-        interval = setInterval(() => {
-          setTime((prevTime) => prevTime + 10);
-        }, 10);
-      } else if (!timeData.timerOn) {
-        dispatch(
-          addTracker({
-            title: timeData.title,
-            startTime: timeData.startTime,
-            endTime: new Date(),
-            projectID: timeData.projectID,
-          })
-        );
-
-        setTime(0);
-        clearInterval(interval);
-      }
-
-      return () => clearInterval(interval);
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
     }
+
+    let interval: any;
+
+    if (timeData.timerOn) {
+      setTimerData({
+        ...timeData,
+        startTime: new Date(),
+      });
+
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 10);
+      }, 10);
+    } else if (timeData.timerOn == false) {
+      dispatch(
+        addTracker({
+          title: timeData.title,
+          startTime: timeData.startTime,
+          endTime: new Date(),
+          projectID: timeData.projectID,
+        })
+      );
+
+      setTime(0);
+      clearInterval(interval);
+    }
+
+    return () => clearInterval(interval);
   }, [timeData.timerOn]);
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
