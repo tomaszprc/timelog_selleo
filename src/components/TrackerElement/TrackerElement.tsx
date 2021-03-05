@@ -10,7 +10,7 @@ import {
 import "react-datepicker/dist/react-datepicker.css";
 
 import DatePicker from "react-datepicker";
-import { editTracker } from "../../redux/trackers";
+import { editTracker, removeTracker } from "../../redux/trackers";
 
 const TrackerElement = ({
   title,
@@ -30,6 +30,14 @@ const TrackerElement = ({
   const projectList = useSelector(getProjectListSelector);
 
   const dispatch = useDispatch();
+
+  const handleRemove = (id: number) => {
+    dispatch(
+      removeTracker({
+        id: id,
+      })
+    );
+  };
 
   const handleEditMode = (id: number) => {
     setEditMode(!editMode);
@@ -137,7 +145,13 @@ const TrackerElement = ({
           />
         </>
       )}
-      <FaRegTrashAlt className="tracker-element__icon" />
+      <FaRegTrashAlt
+        className="tracker-element__icon"
+        onClick={() =>
+          window.confirm("Are you sure you wish to delete this item?") &&
+          handleRemove(id)
+        }
+      />
     </div>
   );
 };

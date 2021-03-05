@@ -1,5 +1,5 @@
 import { TrackersList, TrackerActionTypes } from "./index";
-import { ADD_TRACKER, EDIT_TRACKER } from "./types";
+import { ADD_TRACKER, REMOVE_TRACKER, EDIT_TRACKER } from "./types";
 
 const initialState: TrackersList = {
   trackerList: [],
@@ -38,6 +38,14 @@ export function trackersReducer(
       return {
         ...state,
         trackerList: newTrackersList,
+      };
+
+    case REMOVE_TRACKER:
+      return {
+        ...state,
+        trackerList: state.trackerList.filter(
+          (tracker) => tracker.id !== action.payload.id
+        ),
       };
     default:
       return state;
