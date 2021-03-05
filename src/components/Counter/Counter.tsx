@@ -78,12 +78,7 @@ const Counter = () => {
         onChange={handleInput}
       />
 
-      <select
-        onChange={handleSelect}
-        className="counter__selectbox"
-        name="cars"
-        id="cars"
-      >
+      <select onChange={handleSelect} className="counter__selectbox">
         <option value="null">No project</option>
         {projectsList.map((projectsList) => {
           return (

@@ -18,6 +18,7 @@ const Trackers = () => {
           return (
             <TrackerElement
               key={tracker.id}
+              id={tracker.id}
               title={tracker.title}
               startTime={tracker.startTime}
               endTime={tracker.endTime}
