@@ -1,4 +1,5 @@
 export const ADD_TRACKER = "TRACKERS/ADD_TRACKER";
+export const EDIT_TRACKER = "TRACKERS/EDIT_TRACKER";
 
 export interface Tracker {
   id: number;
@@ -17,9 +18,16 @@ export type AddTrackerPayload = Pick<
   "title" | "startTime" | "endTime" | "projectID"
 >;
 
+export type EditTrackerPayload = Tracker;
+
+export interface EditTrackerAction {
+  type: typeof EDIT_TRACKER;
+  payload: EditTrackerPayload;
+}
+
 export interface AddTrackerAction {
   type: typeof ADD_TRACKER;
   payload: AddTrackerPayload;
 }
 
-export type TrackerActionTypes = AddTrackerAction;
+export type TrackerActionTypes = AddTrackerAction | EditTrackerAction;
