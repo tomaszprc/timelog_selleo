@@ -1,5 +1,6 @@
 export const ADD_TRACKER = "TRACKERS/ADD_TRACKER";
 export const EDIT_TRACKER = "TRACKERS/EDIT_TRACKER";
+export const REMOVE_TRACKER = "TRACKERS/REMOVE_TRACKER";
 
 export interface Tracker {
   id: number;
@@ -20,6 +21,10 @@ export type AddTrackerPayload = Pick<
 
 export type EditTrackerPayload = Tracker;
 
+export interface RemoveTrackerPayLoad {
+  id: number;
+}
+
 export interface EditTrackerAction {
   type: typeof EDIT_TRACKER;
   payload: EditTrackerPayload;
@@ -30,4 +35,12 @@ export interface AddTrackerAction {
   payload: AddTrackerPayload;
 }
 
-export type TrackerActionTypes = AddTrackerAction | EditTrackerAction;
+export interface RemoveTrackerAction {
+  type: typeof REMOVE_TRACKER;
+  payload: RemoveTrackerPayLoad;
+}
+
+export type TrackerActionTypes =
+  | AddTrackerAction
+  | EditTrackerAction
+  | RemoveTrackerAction;

@@ -4,6 +4,8 @@ import {
   EDIT_TRACKER,
   TrackerActionTypes,
   EditTrackerPayload,
+  RemoveTrackerPayLoad,
+  REMOVE_TRACKER,
 } from "./types";
 
 export function addTracker(newTracker: AddTrackerPayload): TrackerActionTypes {
@@ -19,5 +21,14 @@ export function editTracker(
   return {
     type: EDIT_TRACKER,
     payload: editTracker,
+  };
+}
+
+export function removeTracker(
+  removeTracker: RemoveTrackerPayLoad
+): TrackerActionTypes {
+  return {
+    type: REMOVE_TRACKER,
+    payload: removeTracker,
   };
 }
