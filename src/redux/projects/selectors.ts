@@ -9,6 +9,6 @@ export const getProjectSelector = (id: string) => (state: RootState) => {
       return project;
     }
 
-    return;
+    return false;
   });
 };

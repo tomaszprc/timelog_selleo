@@ -26,10 +26,10 @@ export function trackersReducer(
     case EDIT_TRACKER:
       let newTrackersList = state.trackerList.map((tracker) => {
         if (tracker.id === action.payload.id) {
-          tracker.projectID = action.payload.projectID;
-          tracker.title = action.payload.title;
-          tracker.startTime = action.payload.startTime;
-          tracker.endTime = action.payload.endTime;
+          return {
+            ...tracker,
+            ...action.payload,
+          };
         }
 
         return tracker;
