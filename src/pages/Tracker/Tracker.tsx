@@ -14,7 +14,7 @@ const Trackers = () => {
 
       <div className="tracker__list">
         {/* TODO: fix this type any */}
-        {trackersList.map((tracker: Tracker) => {
+        {trackersList.map((tracker) => {
           return (
             <TrackerElement
               key={tracker.id}
