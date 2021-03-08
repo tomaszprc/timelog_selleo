@@ -47,6 +47,9 @@ const TrackerElement = ({
         editTracker({
           title: dataState.title,
           startTime: dataState.startTime,
+          startConvertDate: new Date(dataState.startTime)
+            .toISOString()
+            .slice(0, 10),
           endTime: dataState.endTime,
           projectID: dataState.projectID,
           id,
