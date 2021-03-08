@@ -55,8 +55,10 @@ export function projectReducer(
     case EDIT_PROJECT:
       let taskList = state.projectsList.map((project) => {
         if (project.id === action.payload.id) {
-          project.title = action.payload.title;
-          project.description = action.payload.description;
+          return {
+            ...project,
+            ...action.payload,
+          };
         }
 
         return project;

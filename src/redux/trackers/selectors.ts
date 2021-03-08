@@ -8,6 +8,6 @@ export const getTrackerSelector = (id: string) => (state: RootState) => {
     if (tracker.id === parseInt(id)) {
       return tracker;
     }
-    return;
+    return false;
   });
 };
