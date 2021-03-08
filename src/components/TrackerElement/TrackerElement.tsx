@@ -20,9 +20,9 @@ const TrackerElement = ({
   projectID,
 }: TrackerElementProps) => {
   const [dataState, setDataState] = React.useState({
-    startTime: startTime,
-    endTime: endTime,
-    title: title,
+    startTime,
+    endTime,
+    title,
     projectID: projectID ? projectID : "",
   });
   const [editMode, setEditMode] = React.useState(false);
@@ -34,7 +34,7 @@ const TrackerElement = ({
   const handleRemove = (id: number) => {
     dispatch(
       removeTracker({
-        id: id,
+        id,
       })
     );
   };
@@ -49,7 +49,7 @@ const TrackerElement = ({
           startTime: dataState.startTime,
           endTime: dataState.endTime,
           projectID: dataState.projectID,
-          id: id,
+          id,
         })
       );
     }
