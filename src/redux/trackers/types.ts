@@ -6,6 +6,7 @@ export interface Tracker {
   id: number;
   title: string;
   startTime: Date;
+  startConvertDate: string;
   endTime: Date;
   projectID: string;
 }
@@ -16,7 +17,7 @@ export interface TrackersList {
 
 export type AddTrackerPayload = Pick<
   Tracker,
-  "title" | "startTime" | "endTime" | "projectID"
+  "title" | "startTime" | "endTime" | "projectID" | "startConvertDate"
 >;
 
 export type EditTrackerPayload = Tracker;

@@ -45,6 +45,7 @@ const Counter = () => {
           startTime: timeData.startTime,
           endTime: new Date(),
           projectID: timeData.projectID,
+          startConvertDate: new Date().toISOString().slice(0, 10),
         })
       );
 
