@@ -4,6 +4,7 @@ import {
   ProjectsList,
   REMOVE_PROJECT,
   EDIT_PROJECT,
+  ADD_TRACKER_TO_PROJECT,
 } from "./types";
 
 const initialState: ProjectsList = {
@@ -12,19 +13,19 @@ const initialState: ProjectsList = {
       id: 1,
       title: "Tytuł pierwszego projektu",
       description: "Opis projektu 1",
-      timeTrackerIds: [3, 4],
+      timeTrackerIds: [],
     },
     {
       id: 2,
       title: "Tytuł drugiego projektu",
       description: "Opis projektu 2",
-      timeTrackerIds: [1, 2],
+      timeTrackerIds: [],
     },
     {
       id: 3,
       title: "Tytuł trzeciego projektu",
       description: "Opis projektu 3",
-      timeTrackerIds: [1, 2],
+      timeTrackerIds: [],
     },
   ],
 };
@@ -53,7 +54,7 @@ export function projectReducer(
       };
 
     case EDIT_PROJECT:
-      let taskList = state.projectsList.map((project) => {
+      let projectList = state.projectsList.map((project) => {
         if (project.id === action.payload.id) {
           return {
             ...project,
@@ -64,7 +65,25 @@ export function projectReducer(
         return project;
       });
 
-      return { ...state, projectsList: taskList };
+      return { ...state, projectsList: projectList };
+
+    case ADD_TRACKER_TO_PROJECT:
+      let projectTrackerList = state.projectsList.map((project) => {
+        if (action.payload.projectID === project.id) {
+          project.timeTrackerIds.push(action.payload.trackerID);
+
+          return {
+            ...project,
+          };
+        }
+        return project;
+      });
+
+      return {
+        ...state,
+        projectsList: projectTrackerList,
+      };
+
     default:
       return state;
   }

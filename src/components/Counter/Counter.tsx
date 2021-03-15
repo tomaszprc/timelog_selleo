@@ -1,9 +1,12 @@
 import React, { useRef } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { addTracker } from "../../redux/trackers";
+import { addTracker, getTrackerListSelector } from "../../redux/trackers";
 import { useDispatch } from "react-redux";
-import { getProjectListSelector } from "../../redux/projects";
+import {
+  addTrackerToProject,
+  getProjectListSelector,
+} from "../../redux/projects";
 import { CounterTypeProps } from "../../types";
 
 const Counter = () => {
@@ -19,6 +22,7 @@ const Counter = () => {
 
   const dispatch = useDispatch();
   const projectsList = useSelector(getProjectListSelector);
+  const trackersList = useSelector(getTrackerListSelector);
 
   //TODO: Seperate interval function
   React.useEffect(() => {
@@ -38,7 +42,7 @@ const Counter = () => {
       interval = setInterval(() => {
         setTime((prevTime) => prevTime + 10);
       }, 10);
-    } else if (timeData.timerOn == false) {
+    } else if (timeData.timerOn === false) {
       dispatch(
         addTracker({
           title: timeData.title,
@@ -48,6 +52,15 @@ const Counter = () => {
           startConvertDate: new Date().toISOString().slice(0, 10),
         })
       );
+
+      if (timeData.projectID) {
+        dispatch(
+          addTrackerToProject({
+            projectID: parseInt(timeData.projectID),
+            trackerID: trackersList.length,
+          })
+        );
+      }
 
       setTime(0);
       clearInterval(interval);
