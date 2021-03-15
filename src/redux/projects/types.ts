@@ -1,6 +1,7 @@
 export const ADD_PROJECT = "PROJECTS/ADD_PROJECT";
 export const REMOVE_PROJECT = "PROJECTS/REMOVE_PROJECT";
 export const EDIT_PROJECT = "PROJECTS/EDIT_PROJECT";
+export const ADD_TRACKER_TO_PROJECT = "PROJECTS/ADD_TRACKER_TO_PROJECT";
 
 export interface Project {
   id: number;
@@ -35,6 +36,16 @@ export interface EditProjectPayload {
   description: string;
 }
 
+export interface AddTrackerToProjectPayload {
+  projectID: number;
+  trackerID: number;
+}
+
+export interface AddTrackerToProjectAction {
+  type: typeof ADD_TRACKER_TO_PROJECT;
+  payload: AddTrackerToProjectPayload;
+}
+
 export interface EditProjectAction {
   type: typeof EDIT_PROJECT;
   payload: EditProjectPayload;
@@ -43,4 +54,5 @@ export interface EditProjectAction {
 export type ProjectActionTypes =
   | AddProjectAction
   | RemoveProjectAction
-  | EditProjectAction;
+  | EditProjectAction
+  | AddTrackerToProjectAction;

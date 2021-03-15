@@ -6,6 +6,8 @@ import {
   REMOVE_PROJECT,
   EDIT_PROJECT,
   EditProjectPayload,
+  AddTrackerToProjectPayload,
+  ADD_TRACKER_TO_PROJECT,
 } from "./types";
 
 export function addProject(newProject: AddProjectPayload): ProjectActionTypes {
@@ -31,5 +33,14 @@ export function editProject(
   return {
     type: EDIT_PROJECT,
     payload: editProject,
+  };
+}
+
+export function addTrackerToProject(
+  addTrackerToProject: AddTrackerToProjectPayload
+) {
+  return {
+    type: ADD_TRACKER_TO_PROJECT,
+    payload: addTrackerToProject,
   };
 }
