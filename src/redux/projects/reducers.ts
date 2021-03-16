@@ -5,6 +5,7 @@ import {
   REMOVE_PROJECT,
   EDIT_PROJECT,
   ADD_TRACKER_TO_PROJECT,
+  EDIT_TRACKER_FROM_PROJECT,
 } from "./types";
 
 const initialState: ProjectsList = {
@@ -82,6 +83,37 @@ export function projectReducer(
       return {
         ...state,
         projectsList: projectTrackerList,
+      };
+
+    case EDIT_TRACKER_FROM_PROJECT:
+      const currentProjectID = action.payload.currentProjectID;
+      const trackerID = action.payload.trackerID;
+
+      const currentProject = state.projectsList.filter((project) => {
+        return project.id === currentProjectID;
+      });
+
+      if (currentProject[0].timeTrackerIds.includes(trackerID)) {
+        return state;
+      }
+
+      const updateProjectList = state.projectsList.map((project) => {
+        if (
+          project.id !== currentProjectID &&
+          project.timeTrackerIds.includes(trackerID)
+        ) {
+          let indexNumber = project.timeTrackerIds.indexOf(trackerID);
+          project.timeTrackerIds.splice(indexNumber, 1);
+        } else if (project.id === currentProjectID) {
+          project.timeTrackerIds.push(trackerID);
+        }
+
+        return project;
+      });
+
+      return {
+        ...state,
+        projectsList: updateProjectList,
       };
 
     default:

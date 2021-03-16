@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getProjectSelector,
   getProjectListSelector,
+  editTrackerFromProject,
 } from "../../redux/projects";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -53,6 +54,13 @@ const TrackerElement = ({
           endTime: dataState.endTime,
           projectID: dataState.projectID,
           id,
+        })
+      );
+
+      dispatch(
+        editTrackerFromProject({
+          currentProjectID: parseInt(dataState.projectID),
+          trackerID: id,
         })
       );
     }
