@@ -17,7 +17,7 @@ const Counter = () => {
     timerOn: false,
     title: "",
     startTime: new Date(),
-    projectID: "",
+    projectID: "1",
   });
 
   const dispatch = useDispatch();
@@ -93,7 +93,6 @@ const Counter = () => {
       />
 
       <select onChange={handleSelect} className="counter__selectbox">
-        <option value="null">No project</option>
         {projectsList.map((projectsList) => {
           return (
             <option key={projectsList.id} value={projectsList.id}>

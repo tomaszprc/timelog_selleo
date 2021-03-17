@@ -93,7 +93,6 @@ const TrackerElement = ({
             className="counter__selectbox"
             name="project"
           >
-            <option value="null">No project</option>
             {projectList.map((projectsList) => {
               return (
                 <option key={projectsList.id} value={projectsList.id}>
