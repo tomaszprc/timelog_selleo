@@ -10,7 +10,7 @@ const Navbar: FunctionComponent<NavbarTypeProps> = () => {
           Dashboard
         </Link>
         <Link className="navbar__list-element" to="/tracker">
-          Timer
+          Tracker
         </Link>
         <Link className="navbar__list-element" to="/projects">
           Projects
